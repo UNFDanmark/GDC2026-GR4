@@ -6,14 +6,14 @@ public class MovementHandler : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] float rotationSpeed;
     [SerializeField] private InputAction movementAction;
-    [SerializeField] InputAction rotationAction;
+    //[SerializeField] InputAction rotationAction;
 
     private Rigidbody rigidBody;
 
     private void OnEnable()
     {
         movementAction.Enable();
-        rotationAction.Enable();
+        //rotationAction.Enable();
     }
 
     private void Awake()
@@ -25,10 +25,10 @@ public class MovementHandler : MonoBehaviour
     private void Update()
     {
         HandleMove();
-        HandleRotate();
+        //HandleRotate();
     }
 
-    private void HandleRotate() => rigidBody.angularVelocity = transform.up * rotationSpeed * rotationAction.ReadValue<float>() * Time.deltaTime;
+    //private void HandleRotate() => rigidBody.angularVelocity = transform.up * rotationSpeed * rotationAction.ReadValue<float>() * Time.deltaTime;
 
     private void HandleMove()
     {
