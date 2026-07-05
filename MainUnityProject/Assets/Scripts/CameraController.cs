@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float sensitivityX;
     [SerializeField] float sensitivityY;
     
-    [SerializeField] private float horizontalLock;
+    [SerializeField] private float horizontalDegreesOfFreedom;
 
     private void OnEnable()
     {
@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (Cursor.lockState != CursorLockMode.Locked) return;
         Quaternion rotation = Quaternion.identity;
 
         float toRotateY = yRotationAction.ReadValue<float>() * sensitivityY;
@@ -32,17 +33,8 @@ public class CameraController : MonoBehaviour
         transform.parent.Rotate(transform.parent.up, toRotateX, Space.World);
         Vector3 rot = transform.rotation.eulerAngles;
         rot.x += toRotateY;
-        print(rot.x);
-        if (rot.x <= 360 -horizontalLock && rot.x >= 180)
-        {
-            rot.x = 360 - horizontalLock;
-        }
-        
-        else if (rot.x <= -horizontalLock)
-        {
-            rot.x = -horizontalLock;
-        }
+        if (rot.x > 180) rot.x = Mathf.Clamp(rot.x, (360 - (horizontalDegreesOfFreedom / 2)), (360 + (horizontalDegreesOfFreedom / 2)));
+        else rot.x = Mathf.Clamp(rot.x, -horizontalDegreesOfFreedom/2, horizontalDegreesOfFreedom/2);
         transform.rotation = Quaternion.Euler(rot);
-        //transform.Rotate(transform.parent.right, toRotateY, Space.World);
     }
 }
