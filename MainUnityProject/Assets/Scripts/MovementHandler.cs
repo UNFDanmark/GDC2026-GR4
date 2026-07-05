@@ -36,6 +36,6 @@ public class MovementHandler : MonoBehaviour
 
         Vector3 movementDirection = move.x * transform.right + move.y * transform.forward;
 
-        rigidBody.linearVelocity = movementDirection * movementSpeed * Time.deltaTime;
+        rigidBody.linearVelocity = movementDirection * movementSpeed * Time.deltaTime + new Vector3(0, rigidBody.linearVelocity.y, 0);
     }
 }
