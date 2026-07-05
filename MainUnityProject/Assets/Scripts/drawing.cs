@@ -7,56 +7,41 @@ using UnityEngine.InputSystem;
 
 public class drawing : MonoBehaviour
 {
-    [Header("Settings")]
-    [Range(10,1000)] [Tooltip("Lower = better but also chrome-level memory sucking")] public float drawingQuality = 1000;
-    
-    private int[] order = new int[8];
-    [SerializeField] List<Vector2> drawPoints;
-
-    UILineRenderer line;
-    
-    [SerializeField] bool isDrawing = false;
 
     [SerializeField] InputAction drawAction;
     [SerializeField] InputAction mousePositionAction;
     
+    [SerializeField] RectTransform[] prikker = new RectTransform[8];
+
+    private TrailRenderer trailRenderer;
+    Camera cam;
+    
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        
         drawAction.Enable();
         mousePositionAction.Enable();
-        line =  GetComponent<UILineRenderer>();
-        Restart();
-    }
 
-    void Restart()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        order = new int[8]{0,0,0,0,0,0,0,0};
-        drawPoints = new List<Vector2>();
-        isDrawing = false;
-    }
-
-    IEnumerator startRecording()
-    {
-        if (!drawAction.IsPressed())
-        {
-            Restart();
-            yield return null;
-        }
-        else {
-            isDrawing = true;
-            drawPoints.Add(mousePositionAction.ReadValue<Vector2>());
-            line.points = drawPoints.ToArray();
-            yield return new WaitForSeconds(drawingQuality/1000);
-            StartCoroutine(startRecording());
-        }
+        trailRenderer = GetComponent<TrailRenderer>();
+        trailRenderer.time = int.MaxValue;
+        
+        cam = Camera.main;
     }
     
     void Update()
     {
-        if (drawAction.IsPressed() && !isDrawing)
+        if (drawAction.IsPressed()) // && !isDrawing
         {
-            StartCoroutine(startRecording());
+            trailRenderer.enabled = true;
+            trailRenderer.time = int.MaxValue;
+            Vector2 v = mousePositionAction.ReadValue<Vector2>();
+            transform.position = cam.ScreenToWorldPoint(new Vector3(v.x, v.y, 1));
+        }
+        else
+        {
+            trailRenderer.Clear();
+            trailRenderer.enabled = false;
         }
         
     }
