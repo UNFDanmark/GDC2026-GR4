@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] float sensitivityX;
     [SerializeField] float sensitivityY;
+    Vector3 lastScreenOrientiation = Vector3.forward;
     
     //[SerializeField] private int fov;
     [SerializeField] private float horizontalLock;
@@ -41,6 +42,7 @@ public class CameraController : MonoBehaviour
         toRotateX = Mathf.Clamp(cam.transform.rotation.eulerAngles.x + toRotateX, -horizontalLock, horizontalLock);
         Quaternion rotationX = Quaternion.AngleAxis(toRotateX, transform.up);
         Quaternion rotationY = Quaternion.AngleAxis(toRotateY, transform.right);
-        
+        lastScreenOrientiation = rotationX * (rotationY * lastScreenOrientiation);
+        cam.transform.LookAt(lastScreenOrientiation);
     }
 }
