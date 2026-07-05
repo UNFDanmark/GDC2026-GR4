@@ -79,6 +79,7 @@ MonoBehaviour:
       m_Action: Mouse Position
       m_Flags: 0
     m_Flags: 0
+  prikParent: {fileID: 0}
   prikker:
   - {fileID: 0}
   - {fileID: 0}
