@@ -32,14 +32,16 @@ public class CameraController : MonoBehaviour
         transform.parent.Rotate(transform.parent.up, toRotateX, Space.World);
         Vector3 rot = transform.rotation.eulerAngles;
         rot.x += toRotateY;
-        /*if (rot.x >= horizontalLock)
+        print(rot.x);
+        if (rot.x <= 360 -horizontalLock && rot.x >= 180)
         {
-            rot.x = horizontalLock;
+            rot.x = 360 - horizontalLock;
         }
+        
         else if (rot.x <= -horizontalLock)
         {
             rot.x = -horizontalLock;
-        }*/
+        }
         transform.rotation = Quaternion.Euler(rot);
         //transform.Rotate(transform.parent.right, toRotateY, Space.World);
     }
