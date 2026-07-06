@@ -79,6 +79,7 @@ MonoBehaviour:
       m_Action: Mouse Position
       m_Flags: 0
     m_Flags: 0
+  order: []
   prikParent: {fileID: 0}
   prikker:
   - {fileID: 0}
@@ -415,8 +416,8 @@ MonoBehaviour:
       m_Action: X Rotation
       m_Flags: 8
     m_Flags: 0
-  sensitivityX: 0.3
-  sensitivityY: 0.3
+  sensitivityX: 0.2
+  sensitivityY: 0.2
   horizontalDegreesOfFreedom: 70
 --- !u!1 &5053764612595798028
 GameObject:
@@ -429,6 +430,7 @@ GameObject:
   - component: {fileID: 5390660461006185087}
   - component: {fileID: 672574218116919718}
   - component: {fileID: 3082306583697884476}
+  - component: {fileID: 7770352097284389549}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -544,6 +546,37 @@ MonoBehaviour:
       m_Action: Movement
       m_Flags: 8
     m_Flags: 0
+--- !u!114 &7770352097284389549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5053764612595798028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88912088ce9247b4d8743674cc3d2a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  drawToggleAction:
+    m_Name: Draw Toggle
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ad63c566-84a0-4349-8d55-1aab1a6ae199
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 419f0204-dc99-47bb-92e6-2dda8420f3c7
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Draw Toggle
+      m_Flags: 0
+    m_Flags: 0
+  drawer: {fileID: 5726401163132643516}
+  isDrawing: 0
 --- !u!1 &8100578524777396821
 GameObject:
   m_ObjectHideFlags: 0
