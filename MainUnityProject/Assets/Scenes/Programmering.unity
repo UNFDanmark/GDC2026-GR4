@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 122817165}
   - component: {fileID: 122817164}
   m_Layer: 5
-  m_Name: prik (7)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 324981267}
   - component: {fileID: 324981266}
   m_Layer: 5
-  m_Name: prik (6)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 941768785}
   - component: {fileID: 941768784}
   m_Layer: 5
-  m_Name: prik (2)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 1251508801}
   - component: {fileID: 1251508800}
   m_Layer: 5
-  m_Name: prik (4)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 1569310656}
   - component: {fileID: 1569310655}
   m_Layer: 5
-  m_Name: prik (3)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 1570838208}
   - component: {fileID: 1570838207}
   m_Layer: 5
-  m_Name: prik (5)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1126,7 +1126,7 @@ GameObject:
   - component: {fileID: 1835253004}
   - component: {fileID: 1835253003}
   m_Layer: 5
-  m_Name: prik (1)
+  m_Name: prik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,10 +1508,6 @@ PrefabInstance:
     - target: {fileID: 5390660461006185087, guid: fd1398de28a68774e9194306a4c54849, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: prikParent
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
