@@ -17,12 +17,12 @@ public class drawing : MonoBehaviour
     [Header("no touchies, this only for debugging!!!!")] [SerializeField]
     List<RectTransform> order = new List<RectTransform>();
     [SerializeField] Transform prikParent;
-    [SerializeField] RectTransform[] prikker = new RectTransform[8];
+    public RectTransform[] prikker = new RectTransform[8];
 
     private TrailRenderer trailRenderer;
     Camera cam;
     
-    void Start()
+    void OnEnable()
     {
         Cursor.lockState = CursorLockMode.None;
         
@@ -45,8 +45,10 @@ public class drawing : MonoBehaviour
         }
     }
 
-    void Stop()
+    public void Stop()
     {
+        if (!drawingController.instance.isDrawing) return;
+        
         trailRenderer.Clear();
         trailRenderer.enabled = false;
         

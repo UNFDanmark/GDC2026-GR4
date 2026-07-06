@@ -33,8 +33,12 @@ public class MovementHandler : MonoBehaviour
     private void HandleMove()
     {
         Vector2 move = movementAction.ReadValue<Vector2>();
-
         Vector3 movementDirection = move.x * transform.right + move.y * transform.forward;
+        if (drawingController.instance.isDrawing)
+        {
+            move = Vector2.zero;
+            movementDirection = Vector3.zero;
+        }
 
         rigidBody.linearVelocity = movementDirection * (movementSpeed * Time.deltaTime) + new Vector3(0, rigidBody.linearVelocity.y, 0);
     }
