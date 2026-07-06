@@ -24,4 +24,9 @@ public class PatternManager : MonoBehaviour
         idsAssigned++;
         return idsAssigned;
     }
+
+    public string matchPattern(int[] order)
+    {
+        return null;
+    }
 }

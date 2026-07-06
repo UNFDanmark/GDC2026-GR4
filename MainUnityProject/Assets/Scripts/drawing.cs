@@ -51,6 +51,14 @@ public class drawing : MonoBehaviour
         trailRenderer.enabled = false;
         
         foreach(RectTransform t in prikParent) t.gameObject.GetComponent<Image>().color = Color.white;
+
+        string pattern = PatternManager.instance.matchPattern(order);
+        if (pattern != null)
+        {
+            print(pattern);
+        }
+        
+        order.Clear();
     }
     
     void Update()
