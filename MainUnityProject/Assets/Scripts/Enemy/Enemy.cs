@@ -9,12 +9,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform player;
 
+    [SerializeField] Animator animator;
+
     [SerializeField] bool targetProtected = false;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,5 +31,7 @@ public class Enemy : MonoBehaviour
         {
             agent.speed = 0;
         }
+        
+        animator.SetFloat("speed", agent.velocity.magnitude);
     }
 }
