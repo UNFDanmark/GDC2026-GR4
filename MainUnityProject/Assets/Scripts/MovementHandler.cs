@@ -24,6 +24,7 @@ public class MovementHandler : MonoBehaviour
 
     private void Update()
     {
+        if (MenuManager.instance.pauseMenu.activeSelf) return;
         HandleMove();
         //HandleRotate();
     }

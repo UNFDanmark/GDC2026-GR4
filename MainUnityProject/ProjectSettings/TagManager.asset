@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Prik Parent
+  - Enemy
   layers:
   - Default
   - TransparentFX

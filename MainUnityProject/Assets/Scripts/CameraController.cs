@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (Cursor.lockState != CursorLockMode.Locked) return;
+        if (drawingController.instance.isDrawing || MenuManager.instance.pauseMenu.activeSelf) return;
         Quaternion rotation = Quaternion.identity;
 
         float toRotateY = yRotationAction.ReadValue<float>() * sensitivityY;

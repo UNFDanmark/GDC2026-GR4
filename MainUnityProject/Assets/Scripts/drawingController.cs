@@ -12,6 +12,8 @@ public class drawingController : MonoBehaviour
 
     public bool isDrawing = false;
 
+    public string[] queue = new string[3]{"","",""};
+    
     [SerializeField] bool slowing = false;
     [SerializeField] bool speeding = false;
 
@@ -86,7 +88,7 @@ public class drawingController : MonoBehaviour
 
     void Update()
     {
-        if (drawToggleAction.IsPressed() && !isDrawing)
+        if (drawToggleAction.IsPressed() && !isDrawing && !MenuManager.instance.pauseMenu.activeSelf)
         {
             Enable();
         }
