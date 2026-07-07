@@ -135,12 +135,15 @@ public class drawingController : MonoBehaviour
                     Transform enemyTransform = hit.transform;
                     Enemy enemy = enemyTransform.GetComponentInParent<Enemy>();
 
-                    enemy.damage(queue);
                     foreach (RectTransform r in drawer.spots)
                     {
                         r.GetComponent<Image>().sprite = emptySprite;
-                        queue = new string[3];
                     }
+
+                    string[] temp = queue;
+                    queue = new string[3];
+                    
+                    StartCoroutine(PlayerAnimation.instance.HandlePlayerAnimation(temp, enemy));
                 }
                 else
                 {
