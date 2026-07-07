@@ -26,11 +26,8 @@ public class MovementHandler : MonoBehaviour
     {
         if (MenuManager.instance.pauseMenu.activeSelf) return;
         HandleMove();
-        //HandleRotate();
     }
-
-    //private void HandleRotate() => rigidBody.angularVelocity = transform.up * rotationSpeed * rotationAction.ReadValue<float>() * Time.deltaTime;
-
+    
     private void HandleMove()
     {
         Vector2 move = movementAction.ReadValue<Vector2>();
