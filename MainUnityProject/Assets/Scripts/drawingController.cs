@@ -28,9 +28,15 @@ public class drawingController : MonoBehaviour
     void Disable()
     {
         StartCoroutine(StopBulletTime());
+        drawer.selectedSpot = -1;
         drawer.Stop();
         foreach (RectTransform r in drawer.prikker)
         {
+            r.gameObject.SetActive(false);
+        }
+        foreach (RectTransform r in drawer.spots)
+        {
+            r.sizeDelta = new Vector2(150, 150);
             r.gameObject.SetActive(false);
         }
         drawer.gameObject.SetActive(false);
@@ -80,6 +86,10 @@ public class drawingController : MonoBehaviour
         StartCoroutine(StartBulletTime());
         drawer.gameObject.SetActive(true);
         foreach (RectTransform r in drawer.prikker)
+        {
+            r.gameObject.SetActive(true);
+        }
+        foreach (RectTransform r in drawer.spots)
         {
             r.gameObject.SetActive(true);
         }
