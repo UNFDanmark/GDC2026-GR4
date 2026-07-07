@@ -57,4 +57,14 @@ public class PatternManager : MonoBehaviour
 
         return null;
     }
+
+    public Pattern findPattern(string s)
+    {
+        foreach (Pattern p in patterns)
+        {
+            if (p.name == s) return p;
+        }
+
+        return null;
+    }
 }

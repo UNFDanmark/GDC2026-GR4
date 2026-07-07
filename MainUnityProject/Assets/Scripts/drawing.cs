@@ -18,6 +18,7 @@ public class drawing : MonoBehaviour
     public int selectedSpot = -1;
     [SerializeField] Transform spotParent;
     public RectTransform[] spots = new RectTransform[3];
+    public Image[] spotImages = new Image[3];
 
     private TrailRenderer trailRenderer;
     Camera cam;
@@ -51,6 +52,7 @@ public class drawing : MonoBehaviour
         {
             if (t == spotParent) continue;
             spots[i] = t;
+            spotImages[i] = t.GetComponent<Image>();
             t.name = i.ToString();
             i++;
         }
@@ -71,6 +73,7 @@ public class drawing : MonoBehaviour
             if (selectedSpot != -1)
             {
                 drawingController.instance.queue[selectedSpot] = pattern;
+                spotImages[selectedSpot].sprite = PatternManager.instance.findPattern(pattern).patternSprite;
                 selectedSpot = (selectedSpot + 1)%3;
                 OnEnable();
             }
