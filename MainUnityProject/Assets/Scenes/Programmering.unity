@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pattern: 0100000006000000ffffffffffffffffffffffffffffffffffffffffffffffff
+  patternSprite: {fileID: 21300000, guid: 1044c7a5395e1824ab180416d44a0cff, type: 3}
   p:
     name: 
     pattern: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -3146,6 +3147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pattern
   pattern: 0300000004000000ffffffffffffffffffffffffffffffffffffffffffffffff
+  patternSprite: {fileID: 0}
   p:
     name: 
     pattern: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
