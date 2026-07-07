@@ -136,7 +136,7 @@ public class drawingController : MonoBehaviour
                 }
                 else
                 {
-                    print("FAILED: hit" + hit.transform.name);
+                    print("FAILED: hit " + hit.transform.name);
                 }
             }
             else

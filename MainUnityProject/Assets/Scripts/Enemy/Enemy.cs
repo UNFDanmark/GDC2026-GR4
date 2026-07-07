@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public float speed = 1;
 
     public string[] weakness = new string[3];
+
+    public bool canMove = true;
     
     [Header("nix pille")]
     [SerializeField] NavMeshAgent agent;
@@ -20,31 +22,31 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        agent = GetComponent<NavMeshAgent>();
+        if (canMove) agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (!targetProtected)
+        if (!targetProtected && canMove)
         {
             agent.speed = speed;
             agent.SetDestination(player.position);
         }
-        else
+        else if (canMove)
         {
             agent.speed = 0;
         }
         
-        animator.SetFloat("speed", agent.velocity.magnitude);
+        if(canMove) animator.SetFloat("speed", agent.velocity.magnitude);
     }
 
     public bool damage(string[] combo)
     {
         if (combo.ToCommaSeparatedString().Equals(weakness.ToCommaSeparatedString()))
         {
-            print("owie :(");
-            Destroy(gameObject);
+            print("kill triggered");
+            animator.SetTrigger("kill");
             return true;
         }
         else
@@ -53,5 +55,10 @@ public class Enemy : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void okKillMeNow()
+    {
+        Destroy(gameObject);
     }
 }
