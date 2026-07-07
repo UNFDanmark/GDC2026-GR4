@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -8,6 +10,10 @@ public class drawing : MonoBehaviour
 
     [SerializeField] InputAction drawAction;
     [SerializeField] InputAction mousePositionAction;
+
+    [SerializeField] Sprite emptySprite;
+    [SerializeField] Sprite filledSprite;
+    [SerializeField] float rotationSpeed;
 
 
     [Header("no touchies, this only for debugging!!!!")] [SerializeField]
@@ -65,7 +71,7 @@ public class drawing : MonoBehaviour
         trailRenderer.Clear();
         trailRenderer.enabled = false;
         
-        foreach(RectTransform t in prikParent) t.gameObject.GetComponent<Image>().color = Color.white;
+        foreach(RectTransform t in prikParent) t.gameObject.GetComponent<Image>().sprite = emptySprite;
 
         string pattern = PatternManager.instance.matchPattern(order);
         if (pattern != null)
@@ -108,11 +114,12 @@ public class drawing : MonoBehaviour
                     !hasBeenTouched)
                 {
                     order.Add(t);
-                    t.gameObject.GetComponent<Image>().color = Color.cyan;
+                    t.gameObject.GetComponent<Image>().sprite = filledSprite;
                     trailRenderer.AddPosition(cam.ScreenToWorldPoint(new Vector3(t.position.x, t.position.y, 1)));
                 }
                 i++;
             }
+            foreach (RectTransform t in prikker) if(t.GetComponent<Image>().sprite == filledSprite) t.Rotate(new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);
 
             if (selectedSpot > -1)
             {
