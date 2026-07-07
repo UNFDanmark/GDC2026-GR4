@@ -3,6 +3,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class drawingController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class drawingController : MonoBehaviour
     public drawing drawer;
 
     public bool isDrawing = false;
+    public Sprite emptySprite;
 
     public string[] queue = new string[3]{"","",""};
     
@@ -126,10 +128,15 @@ public class drawingController : MonoBehaviour
                     Enemy enemy = enemyTransform.GetComponentInParent<Enemy>();
 
                     enemy.damage(queue);
+                    foreach (RectTransform r in drawer.spots)
+                    {
+                        r.GetComponent<Image>().sprite = emptySprite;
+                        queue = new string[3];
+                    }
                 }
                 else
                 {
-                    print("FAILED: hit" + hit.transform.name);
+                    print("FAILED: hit " + hit.transform.name);
                 }
             }
             else

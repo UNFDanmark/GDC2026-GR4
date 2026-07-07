@@ -15,11 +15,15 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] private float horizontalDegreesOfFreedom;
 
+    [SerializeField] Rigidbody rb;
+    
     private void OnEnable()
     {
         cam = Camera.main;
         yRotationAction.Enable();
         xRotationAction.Enable();
+        
+        rb = transform.parent.GetComponent<Rigidbody>();
     }
 
     private void Update()
