@@ -8,6 +8,7 @@ public class drawingController : MonoBehaviour
     public static drawingController instance;
     
     public InputAction drawToggleAction;
+    public InputAction attackAction;
     public drawing drawer;
 
     public bool isDrawing = false;
