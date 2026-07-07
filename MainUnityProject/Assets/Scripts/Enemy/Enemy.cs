@@ -5,7 +5,10 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public float speed = 1;
+
+    public string[] weakness = new string[3];
     
+    [Header("nix pille")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform player;
 

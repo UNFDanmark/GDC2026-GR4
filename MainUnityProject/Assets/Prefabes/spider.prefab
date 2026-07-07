@@ -184,6 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 2.5
+  weakness:
+  - Kick
+  - Slap
+  - Slap
   agent: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 0}
