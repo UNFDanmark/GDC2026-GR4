@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 80569078}
   - component: {fileID: 80569079}
   m_Layer: 0
-  m_Name: Slap
+  m_Name: Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

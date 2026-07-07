@@ -193,8 +193,9 @@ MonoBehaviour:
   speed: 2.5
   weakness:
   - Kick
-  - Slap
-  - Slap
+  - Punch
+  - Punch
+  canMove: 1
   agent: {fileID: 0}
   player: {fileID: 0}
   animator: {fileID: 0}
