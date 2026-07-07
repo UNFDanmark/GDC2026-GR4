@@ -7,6 +7,7 @@ TagManager:
   - Prik Parent
   - Enemy
   - Spot Parent
+  - Spot Background Parent
   layers:
   - Default
   - TransparentFX

@@ -23,7 +23,9 @@ public class drawing : MonoBehaviour
 
     public int selectedSpot = -1;
     [SerializeField] Transform spotParent;
+    [SerializeField] Transform SpotBackgroundParent;
     public RectTransform[] spots = new RectTransform[3];
+    public RectTransform[] spotBackgrounds = new RectTransform[3];
     public Image[] spotImages = new Image[3];
 
     private TrailRenderer trailRenderer;
@@ -45,6 +47,7 @@ public class drawing : MonoBehaviour
 
         prikParent = GameObject.FindGameObjectWithTag("Prik Parent").transform;
         spotParent =  GameObject.FindGameObjectWithTag("Spot Parent").transform;
+        SpotBackgroundParent = GameObject.FindGameObjectWithTag("Spot Background Parent").transform;
         int i = 0;
         foreach (RectTransform t in prikParent.GetComponentsInChildren<RectTransform>())
         {
@@ -59,6 +62,14 @@ public class drawing : MonoBehaviour
             if (t == spotParent) continue;
             spots[i] = t;
             spotImages[i] = t.GetComponent<Image>();
+            t.name = i.ToString();
+            i++;
+        }
+        i = 0;
+        foreach (RectTransform t in SpotBackgroundParent.GetComponentsInChildren<RectTransform>())
+        {
+            if (t == SpotBackgroundParent || i > 2) continue;
+            spotBackgrounds[i] = t;
             t.name = i.ToString();
             i++;
         }
@@ -93,8 +104,8 @@ public class drawing : MonoBehaviour
     {
         if (selectedSpot > -1)
         {
-            spots[selectedSpot].sizeDelta = new Vector2(200, 200);
-            spots[(selectedSpot + 2)%3].sizeDelta = new Vector2(150, 150);
+            spots[selectedSpot].sizeDelta = new Vector2(150, 150);
+            spots[(selectedSpot + 2)%3].sizeDelta = new Vector2(100, 100);
         }
         
         if (drawAction.IsPressed()) // && !isDrawing
@@ -123,8 +134,8 @@ public class drawing : MonoBehaviour
 
             if (selectedSpot > -1)
             {
-                spots[selectedSpot].sizeDelta = new Vector2(200, 200);
-                if(selectedSpot > 0) spots[selectedSpot-1].sizeDelta = new Vector2(150, 150);
+                spots[selectedSpot].sizeDelta = new Vector2(150, 150);
+                if(selectedSpot > 0) spots[selectedSpot-1].sizeDelta = new Vector2(100, 100);
             }
         }
         else
