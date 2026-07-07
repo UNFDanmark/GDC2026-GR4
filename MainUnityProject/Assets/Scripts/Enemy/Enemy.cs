@@ -1,11 +1,15 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = 1;
+
+    public string[] weakness = new string[3];
     
+    [Header("nix pille")]
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform player;
 
@@ -33,5 +37,21 @@ public class Enemy : MonoBehaviour
         }
         
         animator.SetFloat("speed", agent.velocity.magnitude);
+    }
+
+    public bool damage(string[] combo)
+    {
+        if (combo.ToCommaSeparatedString().Equals(weakness.ToCommaSeparatedString()))
+        {
+            print("owie :(");
+            Destroy(gameObject);
+            return true;
+        }
+        else
+        {
+            print("resisted");
+        }
+
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class drawingController : MonoBehaviour
     public static drawingController instance;
     
     public InputAction drawToggleAction;
+    public InputAction attackAction;
+    public float attackRange = 10f;
     public drawing drawer;
 
     public bool isDrawing = false;
@@ -16,21 +19,31 @@ public class drawingController : MonoBehaviour
     
     [SerializeField] bool slowing = false;
     [SerializeField] bool speeding = false;
+    Camera cam;
 
     void Start()
     {
         instance = this;
         
         drawToggleAction.Enable();
+        attackAction.Enable();
         Disable();
+        
+        cam = Camera.main;
     }
 
     void Disable()
     {
         StartCoroutine(StopBulletTime());
+        drawer.selectedSpot = -1;
         drawer.Stop();
         foreach (RectTransform r in drawer.prikker)
         {
+            r.gameObject.SetActive(false);
+        }
+        foreach (RectTransform r in drawer.spots)
+        {
+            r.sizeDelta = new Vector2(150, 150);
             r.gameObject.SetActive(false);
         }
         drawer.gameObject.SetActive(false);
@@ -83,6 +96,10 @@ public class drawingController : MonoBehaviour
         {
             r.gameObject.SetActive(true);
         }
+        foreach (RectTransform r in drawer.spots)
+        {
+            r.gameObject.SetActive(true);
+        }
         isDrawing = true;
     }
 
@@ -95,6 +112,30 @@ public class drawingController : MonoBehaviour
         else if (!drawToggleAction.IsPressed() && isDrawing)
         {
             Disable();
+        }
+
+        if (attackAction.WasPressedThisFrame())
+        {
+            if (!queue.ToArray().Contains(""))
+            {
+                RaycastHit hit;
+                bool hitSomething = Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, attackRange);
+                if (hitSomething && (hit.transform.gameObject.CompareTag("Enemy") || hit.transform.parent.gameObject.CompareTag("Enemy")))
+                {
+                    Transform enemyTransform = hit.transform;
+                    Enemy enemy = enemyTransform.GetComponentInParent<Enemy>();
+
+                    enemy.damage(queue);
+                }
+                else
+                {
+                    print("FAILED: hit" + hit.transform.name);
+                }
+            }
+            else
+            {
+                print("FAILED: queue has empty something");
+            }
         }
     }
 }
