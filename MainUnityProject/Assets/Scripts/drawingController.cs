@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class drawingController : MonoBehaviour
     
     public InputAction drawToggleAction;
     public InputAction attackAction;
+    public float attackRange = 10f;
     public drawing drawer;
 
     public bool isDrawing = false;
@@ -17,13 +19,17 @@ public class drawingController : MonoBehaviour
     
     [SerializeField] bool slowing = false;
     [SerializeField] bool speeding = false;
+    Camera cam;
 
     void Start()
     {
         instance = this;
         
         drawToggleAction.Enable();
+        attackAction.Enable();
         Disable();
+        
+        cam = Camera.main;
     }
 
     void Disable()
@@ -106,6 +112,30 @@ public class drawingController : MonoBehaviour
         else if (!drawToggleAction.IsPressed() && isDrawing)
         {
             Disable();
+        }
+
+        if (attackAction.WasPressedThisFrame())
+        {
+            if (!queue.ToArray().Contains(""))
+            {
+                RaycastHit hit;
+                bool hitSomething = Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, attackRange);
+                if (hitSomething && (hit.transform.gameObject.CompareTag("Enemy") || hit.transform.parent.gameObject.CompareTag("Enemy")))
+                {
+                    Transform enemyTransform = hit.transform;
+                    Enemy enemy = enemyTransform.GetComponentInParent<Enemy>();
+
+                    enemy.damage(queue);
+                }
+                else
+                {
+                    print("FAILED: hit" + hit.transform.name);
+                }
+            }
+            else
+            {
+                print("FAILED: queue has empty something");
+            }
         }
     }
 }

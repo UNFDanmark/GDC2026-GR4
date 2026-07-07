@@ -1305,6 +1305,32 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &415921007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5902952520767373890, guid: db98691a2f50c954f8c66cf4e2543817, type: 3}
+  m_PrefabInstance: {fileID: 2252186235143635118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &415921010
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415921007}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.7490225, y: 4.327567, z: 7.4102874}
+  m_Center: {x: 0, y: 1.0023441, z: -2.6569395}
 --- !u!1001 &426693264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4796,7 +4822,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5902952520767373890, guid: db98691a2f50c954f8c66cf4e2543817, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415921010}
   m_SourcePrefab: {fileID: 100100000, guid: db98691a2f50c954f8c66cf4e2543817, type: 3}
 --- !u!1001 &8242447154712950862
 PrefabInstance:
@@ -4806,10 +4835,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 945881999651696036, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10000
-      objectReference: {fileID: 0}
     - target: {fileID: 5053764612595798028, guid: fd1398de28a68774e9194306a4c54849, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4853,82 +4878,6 @@ PrefabInstance:
     - target: {fileID: 5390660461006185087, guid: fd1398de28a68774e9194306a4c54849, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: touchscreenPositionAction.m_Name
-      value: Touchscreen Position
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: drawAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: drawAction.m_SingletonActionBindings.Array.data[1].m_Id
-      value: be3c84ae-eaf0-453c-bb92-783932e37370
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: mousePositionAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: drawAction.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Touchscreen>/Press
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: drawAction.m_SingletonActionBindings.Array.data[1].m_Action
-      value: Draw
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: touchscreenPositionAction.m_SingletonActionBindings.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: mousePositionAction.m_SingletonActionBindings.Array.data[1].m_Id
-      value: 419cca85-cdc4-4c0f-8dfb-a0e2bf0dc011
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: mousePositionAction.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Touchscreen>/position
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: mousePositionAction.m_SingletonActionBindings.Array.data[1].m_Action
-      value: Mouse Position
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: touchscreenPositionAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: c8a07791-37c2-406f-90dd-d76398489ff4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: touchscreenPositionAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Touchscreen>/position
-      objectReference: {fileID: 0}
-    - target: {fileID: 5726401163132643516, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: touchscreenPositionAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Touchscreen Position
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: attackAction.m_Name
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: attackAction.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: attackAction.m_SingletonActionBindings.Array.data[0].m_Id
-      value: e3cadcca-098b-457d-aac9-a7105f749df4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: attackAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/space
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: attackAction.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770352097284389549, guid: fd1398de28a68774e9194306a4c54849, type: 3}
-      propertyPath: drawToggleAction.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Mouse>/rightButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
