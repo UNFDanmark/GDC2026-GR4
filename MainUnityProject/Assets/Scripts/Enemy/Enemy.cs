@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     public bool canMove = true;
     public bool killable = true;
+    public GameObject[] collateralDamage;
 
     [Header("Sounds")]
     [SerializeField] AudioSource sound;
@@ -80,6 +81,11 @@ public class Enemy : MonoBehaviour
             Component c;
             if(TryGetComponent(typeof(Collider), out c)) ((Collider)c).enabled = false;
             foreach(Collider cc in transform.GetComponentsInChildren<Collider>()) cc.enabled = false;
+            foreach (GameObject g in collateralDamage)
+            {
+                if(g.TryGetComponent(typeof(Collider), out c)) ((Collider)c).enabled = false;
+                foreach(Collider cc in g.GetComponentsInChildren<Collider>()) cc.enabled = false;
+            }
         }
 
     }
