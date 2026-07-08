@@ -104,8 +104,8 @@ public class drawing : MonoBehaviour
     {
         if (selectedSpot > -1)
         {
-            spots[selectedSpot].sizeDelta = new Vector2(150, 150);
-            spots[(selectedSpot + 2)%3].sizeDelta = new Vector2(100, 100);
+            spots[selectedSpot].sizeDelta = new Vector2(175, 175);
+            spots[(selectedSpot + 2)%3].sizeDelta = new Vector2(125, 125);
         }
         
         if (drawAction.IsPressed()) // && !isDrawing
@@ -134,8 +134,8 @@ public class drawing : MonoBehaviour
 
             if (selectedSpot > -1)
             {
-                spots[selectedSpot].sizeDelta = new Vector2(150, 150);
-                if(selectedSpot > 0) spots[selectedSpot-1].sizeDelta = new Vector2(100, 100);
+                spots[selectedSpot].sizeDelta = new Vector2(175, 175);
+                if(selectedSpot > 0) spots[selectedSpot-1].sizeDelta = new Vector2(125, 125);
             }
         }
         else
