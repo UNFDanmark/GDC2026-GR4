@@ -17,11 +17,7 @@ public class MovementHandler : MonoBehaviour
 
     void Update()
     {
-        Vector2 movement = movementAction.ReadValue<Vector2>();
-        movement.Normalize();
-        Vector3 vec = new Vector3(movement.x, 0, movement.y);
-
-        vec *= movementSpeed * Time.deltaTime;
-        rb.MovePosition(transform.position + vec);
+        Vector2 movement = movementAction.ReadValue<Vector2>() * (movementSpeed * Time.deltaTime);
+        rb.MovePosition(transform.position + (transform.right * movement.x + transform.forward * movement.y));
     }
 }
