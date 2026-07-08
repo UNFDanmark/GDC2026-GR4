@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public static SceneTransition instance;
     Animator anim;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        instance = this;
     }
 
-    public static void unloadScene(string nameToLoad)
+    public void unloadScene(string nameToLoad)
     {
+        StartCoroutine(unload(nameToLoad));
     }
 
     IEnumerator unload(string n)
