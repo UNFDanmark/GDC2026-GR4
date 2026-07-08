@@ -18,6 +18,6 @@ public class MovementHandler : MonoBehaviour
     void Update()
     {
         Vector2 movement = movementAction.ReadValue<Vector2>() * (movementSpeed * Time.deltaTime);
-        rb.linearVelocity = transform.forward * movement.y;
+        rb.linearVelocity = transform.forward * movement.y +  transform.right * movement.x;
     }
 }
