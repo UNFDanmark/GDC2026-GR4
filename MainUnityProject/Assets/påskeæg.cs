@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class påskeæg : MonoBehaviour
 {
+    public Material gaybama;
+    
     string[] taporder = new string[10];
     int i = 0;
     public InputAction up;
@@ -76,6 +78,10 @@ public class påskeæg : MonoBehaviour
 
     public void doEasterEgg()
     {
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("easter egg"))
+        {
+            g.GetComponent<MeshRenderer>().material = gaybama;
+        }
         print("silly");
     }
 }

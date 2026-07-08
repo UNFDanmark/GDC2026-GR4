@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Spot Parent
   - Spot Background Parent
+  - easter egg
   layers:
   - Default
   - TransparentFX

@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6570d5a1dad18cc489ca352607736afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  gaybama: {fileID: 2100000, guid: ae760d7a251cda04585c305cb0b11007, type: 2}
   up:
     m_Name: Up
     m_Type: 0
