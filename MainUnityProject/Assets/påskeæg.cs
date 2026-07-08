@@ -2,12 +2,13 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class påskeæg : MonoBehaviour
 {
     public Material gaybama;
     
-    string[] taporder = new string[10];
+    [SerializeField] string[] taporder = new string[10];
     int i = 0;
     public InputAction up;
     public InputAction down;
@@ -78,10 +79,11 @@ public class påskeæg : MonoBehaviour
 
     public void doEasterEgg()
     {
-        foreach(GameObject g in GameObject.FindGameObjectsWithTag("easter egg"))
+        print("gayify");
+        foreach(MeshRenderer g in SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<MeshRenderer>())
         {
-            g.GetComponent<MeshRenderer>().material = gaybama;
+            print(g.name);
+            g.material = gaybama;
         }
-        print("silly");
     }
 }
