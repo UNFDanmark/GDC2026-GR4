@@ -10,8 +10,16 @@ public class Enemy : MonoBehaviour
     public string[] weakness = new string[3];
 
     public bool canMove = true;
+    public bool killable = true;
+
+    [Header("Sounds")]
+    [SerializeField] AudioSource sound;
+    public AudioClip deathSound;
+    public AudioClip walkingSound;
+    public AudioClip attackSound;
     
     [Header("nix pille")]
+    [SerializeField] bool dead = false;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform player;
 
@@ -59,6 +67,20 @@ public class Enemy : MonoBehaviour
 
     public void okKillMeNow()
     {
-        Destroy(gameObject);
+        if (dead) return;
+        dead = true;
+        print("AHHHHH");
+        sound.PlayOneShot(deathSound);
+        if (killable)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Component c;
+            if(TryGetComponent(typeof(Collider), out c)) ((Collider)c).enabled = false;
+            foreach(Collider cc in transform.GetComponentsInChildren<Collider>()) cc.enabled = false;
+        }
+
     }
 }

@@ -12,6 +12,8 @@ public abstract class Attacker : MonoBehaviour
     [SerializeField] Transform eyes = null;
     [SerializeField] Transform target;
 
+    public Enemy enemy;
+
     [Header("Debugging Stuff")]
     [SerializeField] bool targetVisible = false;
 
@@ -22,6 +24,8 @@ public abstract class Attacker : MonoBehaviour
 
         eyes = null;
         for(int i = 0; i < transform.childCount; i++) if (transform.GetChild(i).name == "Eyes") eyes = transform.GetChild(i);
+
+        enemy = GetComponent<Enemy>();
     }
 
     protected void Update()
