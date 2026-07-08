@@ -49,7 +49,7 @@ public class drawingController : MonoBehaviour
         }
         foreach (RectTransform r in drawer.spots)
         {
-            r.sizeDelta = new Vector2(100, 100);
+            r.sizeDelta = new Vector2(125, 125);
             r.gameObject.SetActive(false);
         }
         drawer.gameObject.SetActive(false);
