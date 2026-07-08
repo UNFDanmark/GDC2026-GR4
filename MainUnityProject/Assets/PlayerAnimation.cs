@@ -6,9 +6,15 @@ public class PlayerAnimation : MonoBehaviour
 {
     public static PlayerAnimation instance;
     
+    [Header("Fisting")]
     public Animator leftHandAnimator;
     public AnimationClip hitAnimation;
     public Animator rightHandAnimator;
+    
+    [Header("Legs")]
+    public Animator leftLegAnimator;
+    public AnimationClip kickAnimation;
+    public Animator rightLegAnimator;
     
     void Start()
     {
@@ -31,8 +37,10 @@ public class PlayerAnimation : MonoBehaviour
             }
             else if (action == "Kick")
             {
-                //do kicks so cool
+                if (kicks%2 == 1) kickLeftLeg();
+                else kickRightLeg();
                 kicks++;
+                yield return new WaitForSeconds(kickAnimation.length / ((kicks%2 == 1) ? rightLegAnimator.speed : leftLegAnimator.speed));
             }
 
         }
@@ -49,5 +57,16 @@ public class PlayerAnimation : MonoBehaviour
     {
         leftHandAnimator.SetTrigger("punch");
         print("left hand animation");
+    }
+    
+    public void kickRightLeg()
+    {
+        rightLegAnimator.SetTrigger("kick");
+        print("right leg animation");
+    }
+    public void kickLeftLeg()
+    {
+        leftLegAnimator.SetTrigger("kick");
+        print("left leg animation");
     }
 }
