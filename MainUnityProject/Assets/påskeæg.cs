@@ -1,21 +1,83 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class påskeæg : MonoBehaviour
 {
-    string[] taporder = new string[11];
-    public InputAction anyKeyboard;
+    string[] taporder = new string[10];
+    int i = 0;
+    public InputAction up;
+    public InputAction down;
+    public InputAction left;
+    public InputAction right;
+    public InputAction b;
+    public InputAction a;
+    public InputAction start;
 
     void Start()
     {
-        anyKeyboard.Enable();
+        up.Enable();
+        down.Enable();
+        left.Enable();
+        right.Enable();
+        b.Enable();
+        a.Enable();
+        start.Enable();
     }
 
     void Update()
     {
-        if (!anyKeyboard.WasPressedThisFrame()) return;
-        
-        
+
+        if (up.WasPressedThisFrame())
+        {
+            taporder[i] = "up";
+            i++;
+        }
+        else if (down.WasPressedThisFrame())
+        {
+            taporder[i] = "down";
+            i++;
+        }
+        else if (left.WasPressedThisFrame())
+        {
+            taporder[i] = "left";
+            i++;
+        }
+        else if (right.WasPressedThisFrame())
+        {
+            taporder[i] = "right";
+            i++;
+        }
+        else if (b.WasPressedThisFrame())
+        {
+            taporder[i] = "b";
+            i++;
+        }
+        else if (a.WasPressedThisFrame())
+        {
+            taporder[i] = "a";
+            i++;
+        }
+        print(taporder.ToCommaSeparatedString());
+        print(i);
+
+        if (i >= 10) i = 0;
+
+        if (start.WasPressedThisFrame())
+        {
+            if (taporder.ToCommaSeparatedString() == "up, up, down, down, left, right, left, right, b, a")
+            {
+                doEasterEgg();
+            }
+
+            taporder = new String[10];
+            i = 0;
+        }
+    }
+
+    public void doEasterEgg()
+    {
+        print("silly");
     }
 }
