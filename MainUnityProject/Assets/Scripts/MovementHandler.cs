@@ -1,43 +1,27 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovementHandler : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-    [SerializeField] float rotationSpeed;
     [SerializeField] private InputAction movementAction;
-    //[SerializeField] InputAction rotationAction;
 
-    private Rigidbody rigidBody;
+    private Rigidbody rb;
 
-    private void OnEnable()
+    private void Start()
     {
         movementAction.Enable();
-        //rotationAction.Enable();
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void Awake()
+    void Update()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        Vector2 movement = movementAction.ReadValue<Vector2>();
+        movement.Normalize();
+        Vector3 vec = new Vector3(movement.x, 0, movement.y);
 
-    private void Update()
-    {
-        if (MenuManager.instance.pauseMenu.activeSelf) return;
-        HandleMove();
-    }
-    
-    private void HandleMove()
-    {
-        Vector2 move = movementAction.ReadValue<Vector2>();
-        Vector3 movementDirection = move.x * transform.right + move.y * transform.forward;
-        if (drawingController.instance.isDrawing)
-        {
-            move = Vector2.zero;
-            movementDirection = Vector3.zero;
-        }
-
-        rigidBody.linearVelocity = movementDirection * (movementSpeed * Time.deltaTime) + new Vector3(0, rigidBody.linearVelocity.y, 0);
+        vec *= movementSpeed * Time.deltaTime;
+        rb.MovePosition(transform.position + vec);
     }
 }
