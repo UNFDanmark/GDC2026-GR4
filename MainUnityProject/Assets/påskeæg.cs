@@ -59,8 +59,6 @@ public class påskeæg : MonoBehaviour
             taporder[i] = "a";
             i++;
         }
-        print(taporder.ToCommaSeparatedString());
-        print(i);
 
         if (i >= 10) i = 0;
 
