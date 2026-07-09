@@ -16,6 +16,8 @@ public class SceneTransition : MonoBehaviour
     {
         anim = transform.GetComponentInChildren<Animator>();
         instance = this;
+        
+        if(SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "DeathScreen") Cursor.lockState = CursorLockMode.None;
     }
 
     public void unloadScene(string nameToLoad)
