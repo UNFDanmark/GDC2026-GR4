@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class påskeæg : MonoBehaviour
 {
@@ -83,6 +84,10 @@ public class påskeæg : MonoBehaviour
         foreach(MeshRenderer g in SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<MeshRenderer>())
         {
             print(g.name);
+            g.material = gaybama;
+        }
+        foreach(Image g in SceneManager.GetActiveScene().GetRootGameObjects()[0].GetComponentsInChildren<Image>())
+        {
             g.material = gaybama;
         }
     }
