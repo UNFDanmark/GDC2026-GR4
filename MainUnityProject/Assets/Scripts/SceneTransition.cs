@@ -1,5 +1,8 @@
 using System;
 using System.Collections;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,5 +31,13 @@ public class SceneTransition : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(n);
         changingScene = false;
+    }
+
+    public void closeGame()
+    {
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 }
