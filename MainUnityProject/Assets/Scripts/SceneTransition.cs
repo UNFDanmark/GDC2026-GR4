@@ -10,7 +10,7 @@ public class SceneTransition : MonoBehaviour
 
     void Awake()
     {
-        anim = GetComponent<Animator>();
+        anim = transform.GetComponentInChildren<Animator>();
         instance = this;
     }
 
