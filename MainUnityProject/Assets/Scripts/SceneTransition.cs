@@ -21,6 +21,7 @@ public class SceneTransition : MonoBehaviour
 
     IEnumerator unload(string n)
     {
+        Time.timeScale = 1;
         anim.SetTrigger("unload");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(n);
