@@ -7187,13 +7187,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229629004}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000006386872, y: -0.00000042082024, z: -0.0000012516972, w: 1}
+  m_LocalRotation: {x: 0, y: -0.09158861, z: 0, w: 0.995797}
   m_LocalPosition: {x: -6.629, y: 0.06799938, z: 0.00000021041008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1450817634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -10.51, z: 0}
 --- !u!114 &1229629006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7217,8 +7217,8 @@ MonoBehaviour:
     serializedVersion: 0
     m_Bits: 1
   m_ScaleMode: 0
-  m_Offset: {x: 0, y: 0, z: 0.735}
-  m_Size: {x: 1.5, y: 1.5, z: 1.47}
+  m_Offset: {x: 0, y: 0, z: 0.565}
+  m_Size: {x: 1.5, y: 1.5, z: 1.13}
   m_FadeFactor: 1
   m_VisibleInScene: 1
   version: 1
@@ -9415,14 +9415,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 418063376}
     m_Modifications:
-    - target: {fileID: 36044853328845911, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 36044853328845911, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 713947166537884727, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9463,38 +9455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 932650160559519248, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 932650160559519248, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 932650160559519248, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 2534574219773700409, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_Name
       value: Gamestuff
       objectReference: {fileID: 0}
-    - target: {fileID: 3943690358588048671, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: tutorialTexts.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: 'tutorialTexts.Array.data[4]'
-      value: Remember to look for more paintings. That will be all. Good luck, traveler...
-      objectReference: {fileID: 0}
-    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: 'tutorialTexts.Array.data[5]'
-      value: ... also, all enemies are one-shot if you do it right...
-      objectReference: {fileID: 0}
     - target: {fileID: 5024583175401928871, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9502,26 +9466,6 @@ PrefabInstance:
     - target: {fileID: 5024583175401928871, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7708217063712374177, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7708217063712374177, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7708217063712374177, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169601650508910258, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9169601650508910258, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
