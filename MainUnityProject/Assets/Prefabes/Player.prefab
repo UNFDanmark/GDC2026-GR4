@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf07f96e744ab54e971d903ade96e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementHandler
-  movementSpeed: 250
+  movementSpeed: 400
   movementAction:
     m_Name: Movement
     m_Type: 0
