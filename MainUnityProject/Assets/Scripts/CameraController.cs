@@ -10,8 +10,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private InputAction yRotationAction;
     [SerializeField] private InputAction xRotationAction;
     
-    [SerializeField] float sensitivityX;
-    [SerializeField] float sensitivityY;
+    [SerializeField] public float sensitivityX;
+    [SerializeField] public float sensitivityY;
     
     [SerializeField] private float horizontalDegreesOfFreedom;
 
