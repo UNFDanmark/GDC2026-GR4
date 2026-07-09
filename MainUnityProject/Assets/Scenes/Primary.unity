@@ -2778,7 +2778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8119266137834579416, guid: b7d247c3e1c6c8d4abe52c4abaca70c9, type: 3}
       propertyPath: collateralDamage.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8119266137834579416, guid: b7d247c3e1c6c8d4abe52c4abaca70c9, type: 3}
       propertyPath: 'collateralDamage.Array.data[0]'
@@ -4521,7 +4521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8119266137834579416, guid: b7d247c3e1c6c8d4abe52c4abaca70c9, type: 3}
       propertyPath: collateralDamage.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8119266137834579416, guid: b7d247c3e1c6c8d4abe52c4abaca70c9, type: 3}
       propertyPath: 'collateralDamage.Array.data[0]'
@@ -9301,14 +9301,6 @@ PrefabInstance:
     - target: {fileID: 713947166537884727, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 877635041640643155, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14
-      objectReference: {fileID: 0}
-    - target: {fileID: 877635041640643155, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2534574219773700409, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_Name

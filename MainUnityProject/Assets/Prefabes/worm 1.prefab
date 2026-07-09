@@ -312,9 +312,9 @@ MonoBehaviour:
   killable: 1
   collateralDamage: []
   sound: {fileID: 2990044482947394297}
-  deathSound: {fileID: 8300000, guid: ee4014d4f61bbe14b877df8de3b48d78, type: 3}
-  walkingSound: {fileID: 8300000, guid: ee4014d4f61bbe14b877df8de3b48d78, type: 3}
-  attackSound: {fileID: 8300000, guid: ee4014d4f61bbe14b877df8de3b48d78, type: 3}
+  deathSound: {fileID: 8300000, guid: 466657897650fb14398f9f06802e7d61, type: 3}
+  walkingSound: {fileID: 8300000, guid: ce66a7db8fc4def45bffcd0fe5d3e2ad, type: 3}
+  attackSound: {fileID: 8300000, guid: 61b2af2149ad48449b37a1fcaa25559d, type: 3}
   dead: 0
   agent: {fileID: 0}
   player: {fileID: 0}
