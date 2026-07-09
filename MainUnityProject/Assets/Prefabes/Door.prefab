@@ -140,7 +140,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 57cf1a7ea70a7b749aebb350261cae45, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ae760d7a251cda04585c305cb0b11007, type: 2}
+      objectReference: {fileID: 2100000, guid: e0d6aeb87da428f4b83f88292f26d3bd, type: 2}
     - target: {fileID: 919132149155446097, guid: 57cf1a7ea70a7b749aebb350261cae45, type: 3}
       propertyPath: m_Name
       value: door
