@@ -17,7 +17,14 @@ public class MovementHandler : MonoBehaviour
 
     void Update()
     {
-        Vector2 movement = movementAction.ReadValue<Vector2>() * (movementSpeed * Time.deltaTime);
-        rb.linearVelocity = transform.forward * movement.y +  transform.right * movement.x + new Vector3(0, rb.linearVelocity.y, 0);
+        if (drawingController.instance.isDrawing)
+        {
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+        }
+        else
+        {
+            Vector2 movement = movementAction.ReadValue<Vector2>() * (movementSpeed * Time.deltaTime);
+            rb.linearVelocity = transform.forward * movement.y + transform.right * movement.x + new Vector3(0, rb.linearVelocity.y, 0);
+        }
     }
 }

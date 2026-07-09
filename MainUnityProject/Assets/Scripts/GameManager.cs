@@ -40,12 +40,12 @@ public class GameManager : MonoBehaviour
 
     private void UpdateHealth()
     {
-        healthBar.value = playerHealth / maxPlayerHealth;
+        healthBar.value = (float) playerHealth / (float) maxPlayerHealth;
         healthText.text = playerHealth + " / " + maxPlayerHealth;
     }
 
     public void die()
     {
-        SceneManager.LoadScene("DeathScreen");
+        SceneTransition.instance.unloadScene("DeathScreen");
     }
 }

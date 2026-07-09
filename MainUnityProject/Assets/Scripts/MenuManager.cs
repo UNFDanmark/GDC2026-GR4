@@ -22,6 +22,8 @@ public class MenuManager : MonoBehaviour
         {
             togglePauseMenu();
         }
+        
+        if(pauseMenu.activeSelf && !SceneTransition.changingScene) Time.timeScale = 0;
     }
 
     public void togglePauseMenu()

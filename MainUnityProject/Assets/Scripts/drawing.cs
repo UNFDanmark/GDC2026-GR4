@@ -120,8 +120,8 @@ public class drawing : MonoBehaviour
             {
                 Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(null, t.position);
                 bool hasBeenTouched = order.Contains(t);
-                if (v.x >= screenPos.x - 20 && v.x <= screenPos.x + 20 &&
-                    v.y >= screenPos.y - 20 && v.y <= screenPos.y + 20 &&
+                if (v.x >= screenPos.x - 35 && v.x <= screenPos.x + 35 &&
+                    v.y >= screenPos.y - 35 && v.y <= screenPos.y + 35 &&
                     !hasBeenTouched)
                 {
                     order.Add(t);

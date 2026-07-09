@@ -69,7 +69,8 @@ public class drawingController : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForSeconds(Time.deltaTime);
-            Time.timeScale -= Time.deltaTime;
+            if (Time.timeScale - Time.deltaTime > 0.3) Time.timeScale -= Time.deltaTime;
+            else Time.timeScale = 0.3f;
         }
         Time.timeScale = 0.3f;
         slowing = false;
@@ -87,7 +88,8 @@ public class drawingController : MonoBehaviour
                 yield return null;
             }
             yield return new WaitForSeconds(Time.deltaTime);
-            Time.timeScale += Time.deltaTime;
+            if (Time.timeScale + Time.deltaTime < 1) Time.timeScale += Time.deltaTime;
+            else Time.timeScale = 1f;
         }
 
         Time.timeScale = 1f;

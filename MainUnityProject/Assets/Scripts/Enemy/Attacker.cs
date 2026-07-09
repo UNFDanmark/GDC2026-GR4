@@ -5,17 +5,21 @@ public abstract class Attacker : MonoBehaviour
 {
     [Header("General Options")]
     public float viewDistance;
+
+    public int attackDamage = 20;
+    public float attackCooldown = 1;
+    private float attackCooldownMax;
     
     [Header("References")]
-    [SerializeField] GameObject p;
+    [SerializeField] protected GameObject p;
     
-    [SerializeField] Transform eyes = null;
-    [SerializeField] Transform target;
+    [SerializeField] protected Transform eyes = null;
+    [SerializeField] protected Transform target;
 
     public Enemy enemy;
 
     [Header("Debugging Stuff")]
-    [SerializeField] bool targetVisible = false;
+    [SerializeField] protected bool targetVisible = false;
 
     protected void Start()
     {
@@ -26,19 +30,32 @@ public abstract class Attacker : MonoBehaviour
         for(int i = 0; i < transform.childCount; i++) if (transform.GetChild(i).name == "Eyes") eyes = transform.GetChild(i);
 
         enemy = GetComponent<Enemy>();
+        attackCooldownMax = attackCooldown;
     }
 
     protected void Update()
     {
         RaycastHit hit;
         Physics.Raycast(eyes.transform.position, transform.TransformDirection(Vector3.forward), out hit, viewDistance);
-        if(hit.transform == target) targetVisible = true;
+        targetVisible = (hit.transform == target);
+        attackCooldown -= Time.deltaTime;
+        if (attackCooldown < 0) attackCooldown = 0;
     }
 
     protected void OnDrawGizmos()
     {
-        Gizmos.color = targetVisible ? Color.red :  Color.limeGreen;
+        Gizmos.color = targetVisible ? Color.red :  Color.blue;
         Gizmos.DrawLine(eyes.transform.position, eyes.transform.position + transform.forward * viewDistance);
+    }
+
+    protected bool OnCooldown()
+    {
+        return attackCooldown > 0;
+    }
+
+    protected void SetCooldown()
+    {
+        attackCooldown = attackCooldownMax;
     }
 
     public abstract void Attack();

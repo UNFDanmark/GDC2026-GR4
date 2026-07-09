@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
@@ -16,14 +17,14 @@ public class Enemy : MonoBehaviour
     public GameObject[] collateralDamage;
 
     [Header("Sounds")]
-    [SerializeField] AudioSource sound;
+    [SerializeField] public AudioSource sound;
     public AudioClip deathSound;
     public AudioClip walkingSound;
     public AudioClip attackSound;
     
     [Header("nix pille")]
-    [SerializeField] bool dead = false;
-    [SerializeField] NavMeshAgent agent;
+    public bool dead = false;
+    [SerializeField] public NavMeshAgent agent;
     [SerializeField] Transform player;
 
     [SerializeField] Animator animator;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (canMove) agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        StartCoroutine(walkingSoundLoop());
     }
 
     void Update()
@@ -79,7 +81,7 @@ public class Enemy : MonoBehaviour
         sound.PlayOneShot(deathSound);
         if (killable)
         {
-            Destroy(gameObject);
+            StartCoroutine(deathWithSound());
         }
         else
         {
@@ -93,5 +95,33 @@ public class Enemy : MonoBehaviour
             }
         }
 
+    }
+
+    IEnumerator deathWithSound()
+    {
+        canMove = false;
+        Component c;
+        if(TryGetComponent(typeof(MeshRenderer), out c)) ((MeshRenderer)c).enabled = false;
+        foreach (MeshRenderer r in GetComponentsInChildren<MeshRenderer>()) r.enabled = false;
+        foreach (SkinnedMeshRenderer r in GetComponentsInChildren<SkinnedMeshRenderer>()) r.enabled = false;
+
+        yield return new WaitForSeconds(deathSound.length);
+        Destroy(gameObject);
+    }
+
+    IEnumerator walkingSoundLoop()
+    {
+        if(!canMove) yield break;
+        while(!dead)
+        {
+            if (agent.velocity.magnitude > 0.5)
+            {
+                sound.PlayOneShot(walkingSound);
+                yield return new WaitForSeconds(walkingSound.length);
+            }
+            else yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return null;
     }
 }

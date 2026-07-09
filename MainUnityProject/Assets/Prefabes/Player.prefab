@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf07f96e744ab54e971d903ade96e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementHandler
-  movementSpeed: 15
+  movementSpeed: 250
   movementAction:
     m_Name: Movement
     m_Type: 0
@@ -802,6 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   audioSource: {fileID: 211055887494516399}
+  animationSpeed: 2
   leftHandAnimator: {fileID: 996106761642863318}
   hitAnimation: {fileID: -2674958278859614444, guid: cac4dd0a86651804593375c69479dd10, type: 3}
   rightHandAnimator: {fileID: 5488213203686273973}

@@ -6,6 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     public static PlayerAnimation instance;
     public AudioSource audioSource;
+    public float animationSpeed = 1;
     
     [Header("Fisting")]
     public Animator leftHandAnimator;
@@ -28,7 +29,8 @@ public class PlayerAnimation : MonoBehaviour
     {
         int punches = 0;
         int kicks = 0;
-        
+
+        int i = 0;
         foreach (string action in queue)
         {
             if (action == "Punch")
@@ -45,8 +47,10 @@ public class PlayerAnimation : MonoBehaviour
                 else kickRightLeg();
                 audioSource.PlayOneShot(kickSounds[kicks]);
                 kicks++;
-                yield return new WaitForSeconds(kickAnimation.length / ((kicks%2 == 1) ? rightLegAnimator.speed : leftLegAnimator.speed));
+                if (i < 2) yield return new WaitForSeconds(kickAnimation.length / ((kicks%2 == 1) ? rightLegAnimator.speed : leftLegAnimator.speed));
             }
+
+            i++;
 
         }
 
@@ -55,22 +59,26 @@ public class PlayerAnimation : MonoBehaviour
     
     public void hitRightHand()
     {
+        rightHandAnimator.speed = animationSpeed;
         rightHandAnimator.SetTrigger("punch");
         print("right hand animation");
     }
     public void hitLeftHand()
     {
+        leftHandAnimator.speed = animationSpeed;
         leftHandAnimator.SetTrigger("punch");
         print("left hand animation");
     }
     
     public void kickRightLeg()
     {
+        rightLegAnimator.speed = animationSpeed;
         rightLegAnimator.SetTrigger("kick");
         print("right leg animation");
     }
     public void kickLeftLeg()
     {
+        leftLegAnimator.speed = animationSpeed;
         leftLegAnimator.SetTrigger("kick");
         print("left leg animation");
     }

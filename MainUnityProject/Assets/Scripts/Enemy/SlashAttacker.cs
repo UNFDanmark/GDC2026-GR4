@@ -13,6 +13,8 @@ public class SlashAttacker : Attacker
     new void Update()
     {
         base.Update();
+        
+        Attack();
     }
 
     new void OnDrawGizmos()
@@ -22,6 +24,15 @@ public class SlashAttacker : Attacker
 
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        if (enemy.dead) return;
+        if (OnCooldown()) return;
+        if (!targetVisible) return;
+        
+        SetCooldown();
+        enemy.sound.PlayOneShot(enemy.attackSound);
+        if (target == p.transform)
+        {
+            GameManager.instance.damage(attackDamage);
+        }
     }
 }
