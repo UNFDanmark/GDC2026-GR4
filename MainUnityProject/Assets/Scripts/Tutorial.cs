@@ -35,7 +35,12 @@ public class Tutorial : MonoBehaviour
             yield return new WaitForSeconds((0.05f/(1.0f/Time.timeScale)));
         }
         
-        if (currentStep == tutorialTexts.Length-1)
+        if (currentStep == tutorialTexts.Length-2)
+        {
+            yield return new WaitForSeconds(3);
+            nextStep();
+        }
+        else if (currentStep == tutorialTexts.Length-1)
         {
             currentStep = -2;
             yield return new WaitForSeconds(3);

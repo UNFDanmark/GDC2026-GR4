@@ -9465,6 +9465,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
+      propertyPath: tutorialTexts.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
+      propertyPath: 'tutorialTexts.Array.data[4]'
+      value: Remember to look for more paintings. That will be all. Good luck, traveler...
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730684208654527647, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
+      propertyPath: 'tutorialTexts.Array.data[5]'
+      value: ... also, all enemies are one-shot if you do it right...
+      objectReference: {fileID: 0}
     - target: {fileID: 5024583175401928871, guid: df4baf303cb931f428244692fde5ee3f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
