@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ebfcdca21c3b64e8705b05eb13f641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlashAttacker
-  viewDistance: 2.5
-  attackDamage: 20
+  viewDistance: 1.5
+  attackDamage: 15
   attackCooldown: 1
   p: {fileID: 0}
   eyes: {fileID: 8633890849137734127}
