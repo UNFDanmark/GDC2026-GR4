@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3331501642369627704}
   - component: {fileID: 8157422944933974810}
   - component: {fileID: 2547538784989265122}
+  - component: {fileID: 7802972287815270969}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7802972287815270969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246384791920676416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5db6fb82f63859418cbf91d1051cf46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Billboard
+  offset: {x: 90, y: -90, z: -90}
 --- !u!1 &7558552469278453981
 GameObject:
   m_ObjectHideFlags: 0
