@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour
 
     public void okKillMeNow()
     {
+        if (Tutorial.instance.currentStep == 3) Tutorial.instance.nextStep();
+        
         if (dead) return;
         dead = true;
         print("AHHHHH");

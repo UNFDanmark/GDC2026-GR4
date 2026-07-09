@@ -99,6 +99,7 @@ public class drawingController : MonoBehaviour
     void Enable()
     {
         StartCoroutine(StartBulletTime());
+        if (Tutorial.instance.currentStep == 0) Tutorial.instance.nextStep();
         drawer.gameObject.SetActive(true);
         foreach (RectTransform r in drawer.prikker)
         {
@@ -117,6 +118,10 @@ public class drawingController : MonoBehaviour
 
     void Update()
     {
+        bool match = true;
+        foreach (string str in queue) if (str != "Kick") match = false;
+        if (Tutorial.instance.currentStep == 2 && match) Tutorial.instance.nextStep();
+        
         if (drawToggleAction.IsPressed() && !isDrawing && !MenuManager.instance.pauseMenu.activeSelf)
         {
             Enable();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
@@ -127,6 +128,8 @@ public class drawing : MonoBehaviour
                     order.Add(t);
                     t.gameObject.GetComponent<Image>().sprite = filledSprite;
                     trailRenderer.AddPosition(cam.ScreenToWorldPoint(new Vector3(t.position.x, t.position.y, 1)));
+                    
+                    if (Tutorial.instance.currentStep == 1 && PatternManager.instance.matchPattern(order) == "Kick") Tutorial.instance.nextStep();
                 }
                 i++;
             }
