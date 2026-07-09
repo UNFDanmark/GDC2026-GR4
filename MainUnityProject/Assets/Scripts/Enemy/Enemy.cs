@@ -1,5 +1,6 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,7 +38,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (!targetProtected && canMove)
+        if (!targetProtected && canMove && agent.CalculatePath())
         {
             agent.speed = speed;
             agent.SetDestination(player.position);
