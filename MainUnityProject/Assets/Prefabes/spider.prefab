@@ -53,15 +53,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.589094
+      value: -524.3211
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000000113922795
+      value: 0.000010095892
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.92326427
+      value: -2325.39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalRotation.y
@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18da7318cf4d74a409fa80510f71a7a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -202,9 +202,9 @@ MonoBehaviour:
   killable: 1
   collateralDamage: []
   sound: {fileID: 923245961916314943}
-  deathSound: {fileID: 0}
-  walkingSound: {fileID: 0}
-  attackSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: df7e5e87c23623943b5b17c828ddc96b, type: 3}
+  walkingSound: {fileID: 8300000, guid: ce66a7db8fc4def45bffcd0fe5d3e2ad, type: 3}
+  attackSound: {fileID: 8300000, guid: dcd5d4e496c878b49b921a27f1203237, type: 3}
   dead: 0
   agent: {fileID: 0}
   player: {fileID: 0}
@@ -222,7 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ebfcdca21c3b64e8705b05eb13f641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlashAttacker
-  viewDistance: 4
+  viewDistance: 2.5
+  attackDamage: 20
+  attackCooldown: 1
   p: {fileID: 0}
   eyes: {fileID: 8633890849137734127}
   target: {fileID: 0}
@@ -242,7 +244,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
