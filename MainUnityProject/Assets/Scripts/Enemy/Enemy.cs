@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
@@ -38,10 +39,13 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (!targetProtected && canMove && agent.CalculatePath())
+        if (!targetProtected && canMove)
         {
-            agent.speed = speed;
-            agent.SetDestination(player.position);
+            NavMeshPath path = new NavMeshPath();
+            if (agent.CalculatePath(player.position, path) && path.status == NavMeshPathStatus.PathComplete){
+                agent.speed = speed;
+                agent.SetDestination(player.position);
+            }
         }
         else if (canMove)
         {
