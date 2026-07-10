@@ -90,7 +90,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|ArmatureAction
+      name: Death
       takeName: Armature|ArmatureAction
       internalID: 4594303134292970328
       firstFrame: 96
